@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>页序 · 标签管理</title>
+  <link rel="stylesheet" href="./manager.css">
+  <script type="module" src="./manager.js"></script>
+</head>
+<body>
+  <main class="manager">
+    <header class="toolbar">
+      <div class="headline">
+        <h1>页序 <small>Tab 管理</small></h1>
+        <button id="fit-button" type="button" title="仅点击时计算全部标签页所需的窗口大小">自动适配窗口大小</button>
+      </div>
+      <label class="search-wrap">
+        <span class="visually-hidden">搜索标签页标题或网址</span>
+        <input id="search" type="search" placeholder="搜索标题或网址…" autocomplete="off">
+      </label>
+      <div class="meta">
+        <span id="tab-count">正在读取标签页…</span>
+        <span id="target-label"></span>
+      </div>
+    </header>
+
+    <section id="tab-list" class="tab-list" aria-label="按浏览器实际顺序排列的标签页"></section>
+
+    <footer class="footer">
+      <label class="option">
+        <input type="checkbox" id="keep-open">
+        点击 Tab 后保持窗口打开
+      </label>
+      <div class="sorting">
+        <label for="sort-field">排序方式</label>
+        <select id="sort-field">
+          <option value="manual">手动排序</option>
+          <option value="title">网页标题</option>
+          <option value="domain">网站域名</option>
+          <option value="url">完整网址</option>
+        </select>
+        <label for="sort-direction" class="visually-hidden">排序方向</label>
+        <select id="sort-direction">
+          <option value="asc">A → Z / 升序</option>
+          <option value="desc">Z → A / 降序</option>
+        </select>
+        <button id="sort-button" type="button">执行排序</button>
+      </div>
+      <p class="hint">按住 ⋮⋮ 拖动排序；只调整同一安全区段，固定 Tab / 标签组不会被拆分。搜索时暂停排序。</p>
+      <p id="status" class="status" aria-live="polite" role="status"></p>
+    </footer>
+  </main>
+</body>
+</html>

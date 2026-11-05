@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "页序 Yexu",
+  "version": "0.1.1",
+  "description": "在独立可缩放窗口中查看、切换和整理当前 Edge/Chrome 浏览器窗口的标签页。",
+  "minimum_chrome_version": "116",
+  "permissions": ["tabs", "storage", "tabGroups", "system.display", "favicon"],
+  "action": {
+    "default_title": "打开或聚焦页序"
+  },
+  "commands": {
+    "open-manager": {
+      "description": "打开或聚焦页序管理窗口（在扩展快捷键页面设置）"
+    }
+  },
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  }
+}
