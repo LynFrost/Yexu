@@ -1,1 +1,10 @@
-{"name":"yexu","private":true,"version":"0.1.1","type":"module","scripts":{"test":"node --test tests/*.test.js","check":"node --check src/background/service-worker.js && node --check src/ui/manager.js && node --check src/core/tabs.js && node --check src/core/geometry.js && node --check src/storage/preferences.js"}}
+{
+  "name": "yexu",
+  "private": true,
+  "version": "0.1.1",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check extension/src/background/service-worker.js && node --check extension/src/ui/manager.js && node --check extension/src/core/tabs.js && node --check extension/src/core/geometry.js && node --check extension/src/storage/preferences.js"
+  }
+}

@@ -2,12 +2,27 @@
 
 适用于 Windows Edge / Chromium Chrome 的独立标签页管理浮窗，Manifest V3，无后端、无需构建。
 
+## 目录结构
+
+```text
+Yexu/
+├─ extension/             ← 在 Edge 中加载这个目录
+│  ├─ manifest.json       ← 扩展入口
+│  └─ src/                ← 扩展运行代码、界面
+├─ docs/                  ← 开发需求和设计文档
+├─ tests/                 ← 自动化测试，不参与扩展加载
+├─ package.json           ← 开发检查脚本，不参与扩展加载
+└─ README.md              ← 本使用说明
+```
+
+`extension/` 目录内只包含浏览器需要加载的插件文件；根目录的其他文件不需要加载。
+
 ## 安装
 
 1. 下载并解压 `feature/v0.1.1` 分支。
 2. Edge 访问 `edge://extensions`（Chrome 使用 `chrome://extensions`），开启开发人员模式。
-3. 选择“加载解压缩的扩展”，选择包含 `manifest.json` 的仓库根目录。
-4. 点击扩展图标即可打开或聚焦页序。
+3. 选择“加载解压缩的扩展”，**选择仓库内的 `extension/` 目录**（该目录中直接包含 `manifest.json`），不要选择仓库根目录，也不要选择 `extension/src/`。
+4. 如果已加载过旧版（原仓库根目录），先在扩展管理页面**移除旧版扩展**，避免重复；再加载新目录。点击扩展图标即可打开或聚焦页序。
 5. 在 `edge://extensions/shortcuts` 或 `chrome://extensions/shortcuts` 为“打开或聚焦页序”配置未冲突的快捷键（未预设组合）。
 
 ## 操作

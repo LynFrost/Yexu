@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { displayTitle, hostname, orderedTabs, safeSegments, manualMove, planAutomaticSort } from "../src/core/tabs.js";
+import { displayTitle, hostname, orderedTabs, safeSegments, manualMove, planAutomaticSort } from "../extension/src/core/tabs.js";
 const tab = (id,index,title,url="https://example.com/",rest={}) => ({id,index,title,url,pinned:false,groupId:-1,...rest});
 test("indices and duplicate ids",()=>{
  const a=orderedTabs([tab(8,1,"same"),tab(7,0,"same")]);assert.deepEqual(a.map(x=>x.id),[7,8]);

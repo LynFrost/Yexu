@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { availableDisplays, displayForBounds, fitInWorkArea, validBounds } from "../src/core/geometry.js";
+import { availableDisplays, displayForBounds, fitInWorkArea, validBounds } from "../extension/src/core/geometry.js";
 const displays=[{isPrimary:true,workArea:{left:0,top:0,width:1600,height:900}},{isPrimary:false,workArea:{left:-1280,top:0,width:1280,height:800}}];
 test("validates persisted geometry",()=>{assert.equal(validBounds({left:-500,top:0,width:500,height:600}),true);assert.equal(validBounds({left:0,top:NaN,width:500,height:600}),false)});
 test("negative-coordinate monitor",()=>{const b={left:-900,top:100,width:500,height:600};assert.equal(displayForBounds(b,displays),displays[1]);assert.deepEqual(fitInWorkArea(b,displays),b)});
